@@ -1,0 +1,50 @@
+Initializing Xcelium fifo_wr_full_test (19.09 Build 532)  -  Linked on Fri Aug  7 18:22:44 2020
+
+Doing setup ...
+Generating the test with IntelliGen using seed 1...
+
+   *** Warning: DEPR_PORTS_UNIFICATION_DISABLED: 
+Performance optimization for external ports is disabled.
+Access through ports 'sys.fifo_base_test_i.clk_i' and 'sys.clk_i' is done
+separately although both access the same HDL path 'tb.clk'.
+Suggestion: use 'set config simulation -enable_ports_unification=TRUE'
+to improve the performance of external port access.
+
+To change the severity, type:
+set notify -severity=<new-severity-level> DEPR_PORTS_UNIFICATION_DISABLED
+To see possible severity levels use 'set notify -help'
+
+
+Starting the test ...
+Running the test ...
+  " This is fifo_rd empty test " = " This is fifo_rd empty test "
+  "fifo write full test" = "fifo write full test"
+Running should now be initiated from the simulator side
+  "Clock is emitted" = "Clock is emitted"
+  fifo_str_v = fifo_str-@16: fifo_str   of unit: fifo_drv_u 
+	----------------------------------------------	@fifo_str
+0	%wr_fifo:                       1
+1	!wr_addr:                       0
+2	!wr_fill:                       0
+3	!wr_full:                       0
+4	%wr_data:                       253
+5	%rd_fifo:                       1
+6	!rd_addr:                       0
+7	!rd_fill:                       0
+8	!rd_full:                       0
+9	!rd_empty:                      FALSE
+10	!rd_data:                       0
+11	fifo_mem:                       (49 items)
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+  "Clock is emitted" = "Clock is emitted"
+xm_specman is doing end-of-test operations
+Checking the test ...
+Checking is complete - 0 DUT errors, 0 DUT warnings.
+End-of-test operations are completed

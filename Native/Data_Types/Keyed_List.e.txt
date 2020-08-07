@@ -1,0 +1,28 @@
+<'
+-- Code your testbench here.
+
+struct mem{
+	addr : uint (bits:16); 
+    data : uint (bits:32); 
+}; -- mem
+
+extend sys{ 
+	key_s: uint; 
+    !list_l  : list (key: addr) of mem; 
+    
+    run() is also{
+    		var mem_d : mem; 
+            
+            gen mem_d keeping { it.addr==100 ; it.data ==200}; 
+    		
+            list_l.add(mem_d);  
+            
+            if ( list_l.key_exists(100)){ 
+            	print TRUE; 
+            }else { 
+            	print FALSE; 
+            };
+    }; 
+
+}; -- sys
+'>

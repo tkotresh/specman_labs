@@ -1,0 +1,86 @@
+<'
+------------------------------------------------------------------------
+-- EG : 1. 
+-- Data Types in 'E' 
+-- This example details on all the data types used in 'E' or SPECMAN' 
+------------------------------------------------------------------------
+
+-- Enum Data Types: 
+-- Default Kind: Enables int type 
+type colors_kind : [red,blue,green]; 
+-- Define enum type of different size
+type colors_kind_bits : [red_b,blue_b,green_b](bits:2); 
+-- Define enum type of default initialization. 
+type colors_kind_init : [red_i=2,blue_i,green_i] ; 
+
+-- Scalar Types: Define with generic data types. 
+type word_s : uint(bits:64); 
+type byte_s : uint(bits:8); 
+
+-- With Range: 
+type range_s: uint [8..16]; 
+
+struct str{
+
+       -- Instantiate Enumerated Type. 
+       colors_kind_i      : colors_kind; 
+       colors_kind_bits_i : colors_kind_bits; 
+       colors_kind_init_i  : colors_kind_init;
+
+	   -- Instantiate Scalar Sub-Type. 
+       word_s_i : word_s; 
+       byte_s_i : byte_s; 
+       
+	   range_s_i : range_s; 
+       
+    print_me() is{ 
+    
+       var d:uint; 
+       d=4; 
+       print me; 
+    
+       -- Print with type casted data-type. 
+       print colors_kind_i.as_a(uint); 
+       print colors_kind_bits_i.as_a(uint); 
+       print colors_kind_init_i.as_a(uint); 
+       
+       
+       -- Scalar Type Conversion. 
+       print word_s_i.as_a(int); 
+       print byte_s_i.as_a(int); 
+       print range_s_i.as_a(int); 
+       print d.as_a(colors_kind_init); 
+       
+    }; -- print_me m
+
+	run() is also{ 
+        
+        --print default behavior 
+        print_me(); 
+        
+        -- Print assigned value. 
+        colors_kind_i       = green; 
+        colors_kind_bits_i  = blue_b; 
+        colors_kind_init_i  = green_i; 
+        
+        word_s_i  			= 20; 
+        byte_s_i 			= 100; 
+        
+        range_s_i			= 100; -- Give Error
+        
+        -- print modified behavior
+        print_me(); 
+        
+    }; -- run m
+
+}; -- packet str
+
+extend sys{ 
+    -- Instantiate the struct. 
+    -- In 'e' once instantiated it will also generate the data by default. 
+	str_i: str;
+}; 
+
+
+
+'> 
